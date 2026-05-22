@@ -1,0 +1,106 @@
+import { site } from "./site";
+
+export const dictionary = {
+  it: {
+    nav: { home: "Home", menu: "Menu", gallery: "Galleria", about: "Chi siamo", contact: "Contatti" },
+    cta: {
+      menu: "Vedi il menu",
+      directions: "Indicazioni",
+      call: "Chiama",
+      maps: "Google Maps",
+      review: "Profilo Google",
+      fullMenu: "Apri il menu completo",
+    },
+    home: {
+      headline: "Pinsa, pasta e sapori italiani nel cuore di Roma.",
+      subtitle: "Scopri il nostro menu, raggiungici in Via Cavour o chiamaci per informazioni.",
+      quick: "Azioni rapide",
+      highlights: "Menu in evidenza",
+      whyTitle: "Perche visitare Pomodorum",
+      why: [
+        "Posizione centrale a Roma",
+        "Menu digitale chiaro e veloce",
+        "Piatti italiani, pinse, pasta, fritti e bevande",
+        "Supporto lingue utile per turisti",
+        "WIFI gratuito",
+        "Cibo pronto in circa 10 minuti",
+        "Prezzi accessibili per un'esperienza gustosa",
+      ],
+      location: "Dove siamo",
+    },
+    menu: {
+      title: "Menu",
+      intro: "Una prima versione ordinata del menu. Prezzi e dettagli vanno confermati dal proprietario.",
+      search: "Cerca nel menu",
+      noResults: "Nessun risultato trovato.",
+      askStaff: "Chiedi allo staff",
+      allergens: "Allergeni",
+      placeholder: "Da confermare",
+    },
+    gallery: {
+      title: "Galleria",
+      intro: "Spazio pronto per foto reali del ristorante, dei piatti, delle bevande e della zona.",
+    },
+    about: {
+      title: "Chi siamo",
+      body: `${site.name} e un ristorante/pizzeria a Roma, in Via Cavour 153. Offriamo piatti italiani, pinse, pasta, fritti, insalate e bevande in un ambiente semplice e accogliente.`,
+      expect: "I clienti possono aspettarsi un servizio diretto, un menu facile da consultare e piatti italiani adatti a una pausa veloce o a una cena informale.",
+    },
+    contact: {
+      title: "Contatti",
+      intro: "Per informazioni rapide, usa telefono, indicazioni o menu digitale.",
+      hours: "Orari",
+    },
+  },
+  en: {
+    nav: { home: "Home", menu: "Menu", gallery: "Gallery", about: "About", contact: "Contact" },
+    cta: {
+      menu: "View menu",
+      directions: "Get directions",
+      call: "Call",
+      maps: "Google Maps",
+      review: "Google profile",
+      fullMenu: "Open full menu",
+    },
+    home: {
+      headline: "Pinsa, pasta, and Italian flavors in the heart of Rome.",
+      subtitle: "Explore our menu, find us on Via Cavour, or call us for information.",
+      quick: "Quick actions",
+      highlights: "Menu highlights",
+      whyTitle: "Why visit Pomodorum",
+      why: [
+        "Central Rome location",
+        "Fast and clear digital menu",
+        "Italian food, pinsa, pasta, fried starters, and drinks",
+        "Tourist-friendly language support",
+        "Free WIFI",
+        "Food ready in about 10 minutes",
+        "Affordable price for a delicious experience",
+      ],
+      location: "Where to find us",
+    },
+    menu: {
+      title: "Menu",
+      intro: "A clean first version of the menu. Prices and details should be confirmed by the owner.",
+      search: "Search the menu",
+      noResults: "No results found.",
+      askStaff: "Ask staff",
+      allergens: "Allergens",
+      placeholder: "To be confirmed",
+    },
+    gallery: {
+      title: "Gallery",
+      intro: "A ready space for real photos of the restaurant, dishes, drinks, and location.",
+    },
+    about: {
+      title: "About",
+      body: `${site.name} is a restaurant and pizzeria in Rome, located at Via Cavour 153. We serve Italian dishes, pinsa, pasta, fried starters, salads, and drinks in a simple and welcoming setting.`,
+      expect: "Customers can expect direct service, an easy-to-read menu, and Italian food for a quick stop or relaxed casual meal.",
+    },
+    contact: {
+      title: "Contact",
+      intro: "For quick information, use phone, directions, or the digital menu.",
+      hours: "Opening hours",
+    },
+  },
+} as const;

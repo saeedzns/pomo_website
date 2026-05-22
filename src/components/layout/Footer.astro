@@ -1,0 +1,30 @@
+---
+import { site, type Language } from "../../data/site";
+import { dictionary } from "../../data/i18n";
+
+interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+const t = dictionary[lang];
+---
+
+<footer class="border-t border-ink/10 bg-olive text-white">
+  <div class="container-page grid gap-8 py-10 md:grid-cols-[1.2fr_1fr_1fr]">
+    <div>
+      <p class="font-display text-3xl font-bold">{site.name}</p>
+      <p class="mt-3 max-w-sm text-white/75">{lang === "it" ? site.taglineIt : site.taglineEn}</p>
+    </div>
+    <div class="space-y-2 text-sm text-white/80">
+      <p class="font-bold text-white">{site.address}</p>
+      <a class="block hover:text-white" href={site.phoneHref}>{site.phone}</a>
+      <p>{t.contact.hours}: {site.openingHours[lang]}</p>
+    </div>
+    <div class="space-y-2 text-sm">
+      <a class="block text-white/80 hover:text-white" href={site.currentMenuUrl}>{t.cta.fullMenu}</a>
+      <a class="block text-white/80 hover:text-white" href={site.googleMapsUrl}>{t.cta.maps}</a>
+      <p class="text-white/60">Social: TODO owner confirmation</p>
+    </div>
+  </div>
+</footer>

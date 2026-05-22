@@ -1,0 +1,46 @@
+---
+import { dictionary } from "../../data/i18n";
+import { site, type Language } from "../../data/site";
+import LanguageSwitcher from "../ui/LanguageSwitcher.astro";
+
+interface Props {
+  lang: Language;
+  path?: string;
+}
+
+const { lang, path = "" } = Astro.props;
+const nav = dictionary[lang].nav;
+const links = [
+  { href: `/${lang}`, label: nav.home },
+  { href: `/${lang}/menu`, label: nav.menu },
+  { href: `/${lang}/gallery`, label: nav.gallery },
+  { href: `/${lang}/about`, label: nav.about },
+  { href: `/${lang}/contact`, label: nav.contact },
+];
+---
+
+<header class="sticky top-0 z-50 border-b border-ink/10 bg-cream/95 backdrop-blur">
+  <nav class="container-page flex min-h-16 items-center justify-between gap-4">
+    <a href={`/${lang}`} class="font-display text-2xl font-bold text-tomato">{site.name}</a>
+    <div class="hidden items-center gap-1 md:flex">
+      {links.map((link) => (
+        <a class="rounded-md px-3 py-2 text-sm font-semibold text-ink/75 hover:bg-white hover:text-ink" href={link.href}>
+          {link.label}
+        </a>
+      ))}
+    </div>
+    <div class="flex items-center gap-2">
+      <a class="hidden rounded-md bg-basil px-4 py-2 text-sm font-bold text-white sm:inline-flex" href={site.phoneHref}>
+        {dictionary[lang].cta.call}
+      </a>
+      <LanguageSwitcher lang={lang} path={path} />
+    </div>
+  </nav>
+  <div class="container-page flex gap-1 overflow-x-auto pb-3 md:hidden">
+    {links.map((link) => (
+      <a class="shrink-0 rounded-md px-3 py-2 text-sm font-semibold text-ink/75 hover:bg-white" href={link.href}>
+        {link.label}
+      </a>
+    ))}
+  </div>
+</header>

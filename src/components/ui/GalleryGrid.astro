@@ -1,0 +1,24 @@
+---
+const items = [
+  { category: "Food", title: "Pinsa", color: "bg-tomato/85", image: "/images/hero-pomodorum.png" },
+  { category: "Food", title: "Pasta", color: "bg-basil/85" },
+  { category: "Drinks", title: "Drinks", color: "bg-olive/85" },
+  { category: "Restaurant", title: "Restaurant", color: "bg-[#7f4b2a]/85" },
+  { category: "Location", title: "Via Cavour", color: "bg-[#245f73]/85" },
+  { category: "Food", title: "Dessert", color: "bg-[#8f3d54]/85" },
+];
+---
+
+<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+  {items.map((item, index) => (
+    <figure class:list={["relative min-h-56 overflow-hidden rounded-lg", item.color, index === 1 ? "lg:row-span-2" : ""]}>
+      {item.image && <img src={item.image} alt="Placeholder food photography for Pomodorum" loading="lazy" class="absolute inset-0 h-full w-full object-cover" />}
+      <div class="absolute inset-0 opacity-25" style="background-image: radial-gradient(circle at 25% 25%, white 0 2px, transparent 2px); background-size: 22px 22px;"></div>
+      <figcaption class="absolute inset-x-0 bottom-0 bg-ink/65 p-4 text-white">
+        <p class="text-xs font-bold uppercase tracking-[0.16em] text-white/70">{item.category}</p>
+        <p class="mt-1 font-display text-2xl font-bold">{item.title}</p>
+        <p class="mt-1 text-sm text-white/75">Placeholder image. Replace with owner-approved photo.</p>
+      </figcaption>
+    </figure>
+  ))}
+</div>

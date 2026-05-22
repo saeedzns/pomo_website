@@ -1,0 +1,33 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Button from "../../components/ui/Button.astro";
+import SectionHeading from "../../components/ui/SectionHeading.astro";
+import { dictionary } from "../../data/i18n";
+import { site } from "../../data/site";
+
+const lang = "en";
+const t = dictionary[lang];
+---
+
+<BaseLayout lang={lang} path="/about">
+  <section class="container-page grid gap-10 py-12 lg:grid-cols-[1fr_0.8fr]">
+    <div>
+      <SectionHeading title={t.about.title} intro={t.about.body} />
+      <p class="mt-6 text-lg leading-8 text-ink/75">{t.about.expect}</p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <Button href="/en/menu">{t.cta.menu}</Button>
+        <Button href={site.googleMapsUrl} variant="secondary">{t.cta.directions}</Button>
+      </div>
+    </div>
+    <div class="surface rounded-lg p-6">
+      <h2 class="font-display text-3xl font-bold">What we serve</h2>
+      <ul class="mt-5 grid gap-3 text-ink/75">
+        <li>Italian dishes</li>
+        <li>Pinsa and pasta</li>
+        <li>Fried starters, salads, and desserts</li>
+        <li>Drinks, beer, wine, and spritz</li>
+        <li>Digital menu with multiple languages</li>
+      </ul>
+    </div>
+  </section>
+</BaseLayout>

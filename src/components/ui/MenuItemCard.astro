@@ -1,0 +1,36 @@
+---
+import type { Language } from "../../data/site";
+import { dictionary } from "../../data/i18n";
+
+interface MenuItem {
+  id: string;
+  name: string;
+  description?: string;
+  price?: number | null;
+  allergens?: string[];
+  tags?: string[];
+}
+
+interface Props {
+  item: MenuItem;
+  lang: Language;
+}
+
+const { item, lang } = Astro.props;
+const t = dictionary[lang].menu;
+const price = typeof item.price === "number" ? `€${item.price.toFixed(2)}` : t.askStaff;
+---
+
+<article class="menu-item surface rounded-lg p-4" data-search={`${item.name} ${item.description ?? ""} ${(item.tags ?? []).join(" ")}`.toLowerCase()}>
+  <div class="flex items-start justify-between gap-4">
+    <h3 class="text-lg font-bold">{item.name}</h3>
+    <p class="shrink-0 rounded-md bg-cream px-3 py-1 text-sm font-bold text-tomato">{price}</p>
+  </div>
+  {item.description && <p class="mt-2 text-sm leading-6 text-ink/70">{item.description}</p>}
+  {(item.tags?.length || item.allergens?.length) && (
+    <div class="mt-4 flex flex-wrap gap-2 text-xs">
+      {item.tags?.map((tag) => <span class="rounded-full bg-basil/10 px-3 py-1 font-semibold text-basil">{tag}</span>)}
+      {item.allergens?.map((allergen) => <span class="rounded-full bg-tomato/10 px-3 py-1 font-semibold text-tomato">{t.allergens}: {allergen}</span>)}
+    </div>
+  )}
+</article>

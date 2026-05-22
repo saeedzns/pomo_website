@@ -1,0 +1,8 @@
+dist/
+node_modules/
+.astro/
+.vercel/
+.netlify/
+.env
+.agents/
+.codex/

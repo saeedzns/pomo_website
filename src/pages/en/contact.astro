@@ -1,0 +1,42 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ContactButtons from "../../components/ui/ContactButtons.astro";
+import SectionHeading from "../../components/ui/SectionHeading.astro";
+import Button from "../../components/ui/Button.astro";
+import { dictionary } from "../../data/i18n";
+import { site } from "../../data/site";
+
+const lang = "en";
+const t = dictionary[lang];
+---
+
+<BaseLayout lang={lang} path="/contact">
+  <section class="container-page py-12">
+    <SectionHeading title={t.contact.title} intro={t.contact.intro} />
+    <div class="mt-8">
+      <ContactButtons lang={lang} />
+    </div>
+    <div class="mt-10 grid gap-6 lg:grid-cols-2">
+      <div class="surface rounded-lg p-6">
+        <h2 class="font-display text-3xl font-bold">{site.name}</h2>
+        <dl class="mt-5 grid gap-4 text-ink/75">
+          <div><dt class="font-bold text-ink">Address</dt><dd>{site.address}</dd></div>
+          <div><dt class="font-bold text-ink">Phone</dt><dd><a href={site.phoneHref}>{site.phone}</a></dd></div>
+          <div><dt class="font-bold text-ink">{t.contact.hours}</dt><dd>{site.openingHours.en}</dd></div>
+        </dl>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <Button href={site.currentMenuUrl} variant="ghost">{t.cta.fullMenu}</Button>
+          <Button href={site.googleMapsUrl} variant="secondary">{t.cta.maps}</Button>
+        </div>
+      </div>
+      <div class="surface overflow-hidden rounded-lg">
+        <iframe
+          title="Pomodorum map"
+          src="https://www.google.com/maps?q=Via%20Cavour%20153%2C%20Roma%2C%2000184%2C%20RM&output=embed"
+          class="h-80 w-full border-0"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

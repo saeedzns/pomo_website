@@ -1,0 +1,31 @@
+---
+import MenuItemCard from "./MenuItemCard.astro";
+import type { Language } from "../../data/site";
+
+interface MenuItem {
+  id: string;
+  name: string;
+  description?: string;
+  price?: number | null;
+  allergens?: string[];
+  tags?: string[];
+}
+
+interface Props {
+  category: {
+    category: string;
+    items: MenuItem[];
+  };
+  lang: Language;
+}
+
+const { category, lang } = Astro.props;
+const id = category.category.toLowerCase().replace(/\s+/g, "-");
+---
+
+<section id={id} class="scroll-mt-32">
+  <h2 class="mb-4 font-display text-3xl font-bold">{category.category}</h2>
+  <div class="grid gap-4 md:grid-cols-2">
+    {category.items.map((item) => <MenuItemCard item={item} lang={lang} />)}
+  </div>
+</section>

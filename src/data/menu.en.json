@@ -1,0 +1,69 @@
+[
+  {
+    "category": "Pasta",
+    "items": [
+      {
+        "id": "pasta-placeholder",
+        "name": "Pasta",
+        "description": "Details to be confirmed with the restaurant.",
+        "price": null,
+        "allergens": [],
+        "tags": ["To be confirmed"]
+      }
+    ]
+  },
+  {
+    "category": "Pinse Rosse",
+    "items": [
+      {
+        "id": "pinse-rosse-placeholder",
+        "name": "Red pinse",
+        "description": "Ingredients and prices must be confirmed before final publishing.",
+        "price": null,
+        "allergens": ["gluten"],
+        "tags": ["To be confirmed"]
+      }
+    ]
+  },
+  {
+    "category": "Insalate",
+    "items": [
+      {
+        "id": "insalate-placeholder",
+        "name": "Salads",
+        "description": "Available options to verify with staff.",
+        "price": null,
+        "allergens": [],
+        "tags": ["To be confirmed"]
+      }
+    ]
+  },
+  {
+    "category": "Bevande",
+    "items": [
+      { "id": "still-water", "name": "Still water", "description": "Size and price to be confirmed.", "price": null, "allergens": [], "tags": [] },
+      { "id": "sparkling-water", "name": "Sparkling water", "description": "Size and price to be confirmed.", "price": null, "allergens": [], "tags": [] },
+      { "id": "coca-cola", "name": "Coca-Cola", "description": "Size and price to be confirmed.", "price": null, "allergens": [], "tags": [] },
+      { "id": "sprite", "name": "Sprite", "description": "Size and price to be confirmed.", "price": null, "allergens": [], "tags": [] },
+      { "id": "fanta", "name": "Fanta", "description": "Size and price to be confirmed.", "price": null, "allergens": [], "tags": [] },
+      { "id": "peroni", "name": "Peroni", "description": "Size and price to be confirmed.", "price": null, "allergens": ["gluten"], "tags": [] },
+      { "id": "birra-moretti", "name": "Birra Moretti", "description": "Size and price to be confirmed.", "price": null, "allergens": ["gluten"], "tags": [] },
+      { "id": "spritz", "name": "Spritz", "description": "Recipe and price to be confirmed.", "price": null, "allergens": [], "tags": [] },
+      { "id": "white-wine", "name": "White wine", "description": "Label, glass/bottle, and price to be confirmed.", "price": null, "allergens": ["sulphites"], "tags": [] },
+      { "id": "red-wine", "name": "Red wine", "description": "Label, glass/bottle, and price to be confirmed.", "price": null, "allergens": ["sulphites"], "tags": [] }
+    ]
+  },
+  {
+    "category": "Fritti",
+    "items": [
+      {
+        "id": "fritti-placeholder",
+        "name": "Fried starters",
+        "description": "Selection and prices to be confirmed with the restaurant.",
+        "price": null,
+        "allergens": [],
+        "tags": ["To be confirmed"]
+      }
+    ]
+  }
+]

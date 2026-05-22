@@ -1,0 +1,20 @@
+---
+import { site } from "../../data/site";
+import { dictionary } from "../../data/i18n";
+import Button from "./Button.astro";
+import type { Language } from "../../data/site";
+
+interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+const t = dictionary[lang];
+---
+
+<div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+  <Button href={site.phoneHref}>{t.cta.call}</Button>
+  <Button href={site.googleMapsUrl} variant="secondary">{t.cta.directions}</Button>
+  <Button href={`/${lang}/menu`} variant="ghost">{t.cta.menu}</Button>
+  <Button href={site.googleMapsUrl} variant="ghost">{t.cta.review}</Button>
+</div>

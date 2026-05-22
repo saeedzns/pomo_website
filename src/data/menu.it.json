@@ -1,0 +1,69 @@
+[
+  {
+    "category": "Pasta",
+    "items": [
+      {
+        "id": "pasta-placeholder",
+        "name": "Pasta",
+        "description": "Dettagli da confermare con il ristorante.",
+        "price": null,
+        "allergens": [],
+        "tags": ["Da confermare"]
+      }
+    ]
+  },
+  {
+    "category": "Pinse Rosse",
+    "items": [
+      {
+        "id": "pinse-rosse-placeholder",
+        "name": "Pinse Rosse",
+        "description": "Ingredienti e prezzi da confermare prima della pubblicazione finale.",
+        "price": null,
+        "allergens": ["glutine"],
+        "tags": ["Da confermare"]
+      }
+    ]
+  },
+  {
+    "category": "Insalate",
+    "items": [
+      {
+        "id": "insalate-placeholder",
+        "name": "Insalate",
+        "description": "Opzioni disponibili da verificare con lo staff.",
+        "price": null,
+        "allergens": [],
+        "tags": ["Da confermare"]
+      }
+    ]
+  },
+  {
+    "category": "Bevande",
+    "items": [
+      { "id": "acqua-naturale", "name": "Acqua naturale", "description": "Formato e prezzo da confermare.", "price": null, "allergens": [], "tags": [] },
+      { "id": "acqua-frizzante", "name": "Acqua frizzante", "description": "Formato e prezzo da confermare.", "price": null, "allergens": [], "tags": [] },
+      { "id": "coca-cola", "name": "Coca-Cola", "description": "Formato e prezzo da confermare.", "price": null, "allergens": [], "tags": [] },
+      { "id": "sprite", "name": "Sprite", "description": "Formato e prezzo da confermare.", "price": null, "allergens": [], "tags": [] },
+      { "id": "fanta", "name": "Fanta", "description": "Formato e prezzo da confermare.", "price": null, "allergens": [], "tags": [] },
+      { "id": "peroni", "name": "Peroni", "description": "Formato e prezzo da confermare.", "price": null, "allergens": ["glutine"], "tags": [] },
+      { "id": "birra-moretti", "name": "Birra Moretti", "description": "Formato e prezzo da confermare.", "price": null, "allergens": ["glutine"], "tags": [] },
+      { "id": "spritz", "name": "Spritz", "description": "Ricetta e prezzo da confermare.", "price": null, "allergens": [], "tags": [] },
+      { "id": "vino-bianco", "name": "Vino bianco", "description": "Etichetta, calice/bottiglia e prezzo da confermare.", "price": null, "allergens": ["solfiti"], "tags": [] },
+      { "id": "vino-rosso", "name": "Vino rosso", "description": "Etichetta, calice/bottiglia e prezzo da confermare.", "price": null, "allergens": ["solfiti"], "tags": [] }
+    ]
+  },
+  {
+    "category": "Fritti",
+    "items": [
+      {
+        "id": "fritti-placeholder",
+        "name": "Fritti",
+        "description": "Selezione e prezzi da confermare con il ristorante.",
+        "price": null,
+        "allergens": [],
+        "tags": ["Da confermare"]
+      }
+    ]
+  }
+]

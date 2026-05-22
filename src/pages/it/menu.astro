@@ -1,0 +1,50 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import MenuCategory from "../../components/ui/MenuCategory.astro";
+import Button from "../../components/ui/Button.astro";
+import { dictionary } from "../../data/i18n";
+import { site } from "../../data/site";
+import menu from "../../data/menu.it.json";
+
+const lang = "it";
+const t = dictionary[lang];
+---
+
+<BaseLayout lang={lang} path="/menu" title={`Menu | ${site.name} Roma`}>
+  <section class="container-page py-12">
+    <h1 class="font-display text-5xl font-bold">{t.menu.title}</h1>
+    <p class="mt-4 max-w-2xl text-ink/70">{t.menu.intro}</p>
+    <div class="mt-8 flex flex-wrap gap-3">
+      {menu.map((category) => (
+        <a class="rounded-md border border-ink/15 bg-white px-4 py-2 text-sm font-bold" href={`#${category.category.toLowerCase().replace(/\s+/g, "-")}`}>
+          {category.category}
+        </a>
+      ))}
+    </div>
+    <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+      <label class="sr-only" for="menu-search">{t.menu.search}</label>
+      <input id="menu-search" class="min-h-12 flex-1 rounded-md border border-ink/15 bg-white px-4" type="search" placeholder={t.menu.search} />
+      <Button href={site.currentMenuUrl} variant="secondary">{t.cta.fullMenu}</Button>
+    </div>
+  </section>
+  <section class="container-page grid gap-12 pb-16">
+    {menu.map((category) => <MenuCategory category={category} lang={lang} />)}
+    <p id="no-results" class="hidden rounded-md bg-white p-5 font-bold">{t.menu.noResults}</p>
+  </section>
+  <script>
+    const input = document.querySelector<HTMLInputElement>("#menu-search");
+    const items = [...document.querySelectorAll<HTMLElement>(".menu-item")];
+    const empty = document.querySelector<HTMLElement>("#no-results");
+    input?.addEventListener("input", () => {
+      const query = input.value.trim().toLowerCase();
+      let visible = 0;
+      items.forEach((item) => {
+        const match = item.dataset.search?.includes(query) ?? true;
+        item.hidden = !match;
+        if (match) visible += 1;
+      });
+      if (empty) empty.hidden = visible !== 0;
+      empty?.classList.toggle("hidden", visible !== 0);
+    });
+  </script>
+</BaseLayout>

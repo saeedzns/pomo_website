@@ -1,0 +1,68 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Button from "../../components/ui/Button.astro";
+import ContactButtons from "../../components/ui/ContactButtons.astro";
+import SectionHeading from "../../components/ui/SectionHeading.astro";
+import { dictionary } from "../../data/i18n";
+import { site } from "../../data/site";
+
+const lang = "it";
+const t = dictionary[lang];
+const highlights = ["Pasta", "Pinse Rosse", "Insalate", "Bevande", "Fritti"];
+---
+
+<BaseLayout lang={lang}>
+  <section class="relative overflow-hidden bg-ink text-white">
+    <img src="/images/hero-pomodorum.png" alt="Tavola italiana con pinsa, pasta e ingredienti freschi" class="absolute inset-0 h-full w-full object-cover opacity-55" />
+    <div class="absolute inset-0 bg-gradient-to-r from-ink via-ink/70 to-ink/20"></div>
+    <div class="container-page relative grid min-h-[calc(100svh-8rem)] content-center py-20">
+      <div class="max-w-2xl">
+        <p class="mb-4 text-sm font-bold uppercase tracking-[0.18em] text-white/75">{site.taglineIt}</p>
+        <h1 class="font-display text-5xl font-bold sm:text-7xl">{site.name}</h1>
+        <p class="mt-5 text-2xl font-semibold leading-tight sm:text-3xl">{t.home.headline}</p>
+        <p class="mt-4 max-w-xl text-base leading-7 text-white/80">{t.home.subtitle}</p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <Button href="/it/menu">{t.cta.menu}</Button>
+          <Button href={site.googleMapsUrl} variant="secondary">{t.cta.directions}</Button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-page py-12">
+    <SectionHeading title={t.home.quick} />
+    <div class="mt-6">
+      <ContactButtons lang={lang} />
+    </div>
+  </section>
+
+  <section class="bg-paper py-14">
+    <div class="container-page">
+      <SectionHeading title={t.home.highlights} intro="Categorie principali pronte per una consultazione veloce." />
+      <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+        {highlights.map((item) => (
+          <a class="surface rounded-lg p-5 transition hover:-translate-y-1 hover:border-tomato" href={`/it/menu#${item.toLowerCase().replace(/\s+/g, "-")}`}>
+            <p class="font-display text-2xl font-bold">{item}</p>
+            <p class="mt-3 text-sm text-ink/65">Apri sezione menu</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="container-page grid gap-10 py-14 lg:grid-cols-2">
+    <div>
+      <SectionHeading title={t.home.whyTitle} />
+      <ul class="mt-6 grid gap-3">
+        {t.home.why.map((reason) => <li class="rounded-md bg-white px-4 py-3 font-semibold shadow-sm">{reason}</li>)}
+      </ul>
+    </div>
+    <div class="surface rounded-lg p-6">
+      <SectionHeading title={t.home.location} intro={site.address} />
+      <div class="mt-6 flex flex-wrap gap-3">
+        <Button href={site.googleMapsUrl} variant="secondary">{t.cta.maps}</Button>
+        <Button href={site.phoneHref} variant="ghost">{t.cta.call}</Button>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,45 @@
+---
+import { site, type Language } from "../../data/site";
+
+interface Props {
+  lang: Language;
+  title?: string;
+  description?: string;
+  path?: string;
+}
+
+const { lang, title = site.seo[lang].title, description = site.seo[lang].description, path = "" } = Astro.props;
+const canonical = new URL(`/${lang}${path}`, Astro.site ?? "https://pomodorum.example").toString();
+const alternateIt = new URL(`/it${path}`, Astro.site ?? "https://pomodorum.example").toString();
+const alternateEn = new URL(`/en${path}`, Astro.site ?? "https://pomodorum.example").toString();
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  name: site.name,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Via Cavour 153",
+    addressLocality: "Roma",
+    postalCode: "00184",
+    addressRegion: "RM",
+    addressCountry: "IT",
+  },
+  telephone: site.phone,
+  url: canonical,
+  menu: site.currentMenuUrl,
+  servesCuisine: ["Italian", "Pizza", "Pinsa", "Pasta"],
+};
+---
+
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+<link rel="alternate" hreflang="it" href={alternateIt} />
+<link rel="alternate" hreflang="en" href={alternateEn} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:type" content="website" />
+<meta property="og:url" content={canonical} />
+<meta property="og:image" content="/images/hero-pomodorum.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />
