@@ -9,6 +9,9 @@
 
   body {
     @apply bg-cream text-ink antialiased;
+    background:
+      radial-gradient(circle at top left, rgb(185 54 43 / 0.08), transparent 28rem),
+      linear-gradient(180deg, #fff9ed 0%, #f8efdf 52%, #fff9ed 100%);
   }
 
   a,
@@ -24,6 +27,18 @@
   }
 
   .surface {
-    @apply border border-ink/10 bg-paper shadow-soft;
+    @apply border border-ink/10 bg-white/80 shadow-soft backdrop-blur;
+  }
+
+  .eyebrow {
+    @apply text-xs font-bold uppercase tracking-[0.28em] text-tomato;
+  }
+
+  .hero-title {
+    @apply font-display text-6xl font-bold leading-none text-ink sm:text-8xl lg:text-9xl;
+  }
+
+  .menu-rule {
+    @apply border-b border-ink/10;
   }
 }

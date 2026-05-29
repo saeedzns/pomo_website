@@ -25,9 +25,18 @@ const schema = {
     addressCountry: "IT",
   },
   telephone: site.phone,
+  email: site.email,
   url: canonical,
   menu: site.currentMenuUrl,
-  servesCuisine: ["Italian", "Pizza", "Pinsa", "Pasta"],
+  servesCuisine: ["Italian", "Roman", "Pinsa", "Pasta"],
+  openingHours: "Tu-Su 10:00-21:00",
+  amenityFeature: [
+    {
+      "@type": "LocationFeatureSpecification",
+      name: "Free Wi-Fi",
+      value: true,
+    },
+  ],
 };
 ---
 
@@ -42,4 +51,4 @@ const schema = {
 <meta property="og:url" content={canonical} />
 <meta property="og:image" content="/images/hero-pomodorum.png" />
 <meta name="twitter:card" content="summary_large_image" />
-<script type="application/ld+json" set:html={JSON.stringify(schema)} />
+<script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />

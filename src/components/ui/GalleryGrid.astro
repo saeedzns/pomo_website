@@ -1,23 +1,29 @@
 ---
 const items = [
-  { category: "Food", title: "Pinsa", color: "bg-tomato/85", image: "/images/hero-pomodorum.png" },
-  { category: "Food", title: "Pasta", color: "bg-basil/85" },
-  { category: "Drinks", title: "Drinks", color: "bg-olive/85" },
-  { category: "Restaurant", title: "Restaurant", color: "bg-[#7f4b2a]/85" },
-  { category: "Location", title: "Via Cavour", color: "bg-[#245f73]/85" },
-  { category: "Food", title: "Dessert", color: "bg-[#8f3d54]/85" },
+  { category: "Pasta", title: "Carbonara", image: "/images/menu/dish-carbonara.jpg" },
+  { category: "Pasta", title: "Cacio e Pepe", image: "/images/menu/dish-cacio-pepe.jpg" },
+  { category: "Pasta", title: "Amatriciana", image: "/images/menu/dish-amatriciana.jpg" },
+  { category: "Pinsa", title: "Pinsa Margherita", image: "/images/menu/dish-pinsa-margherita.jpg" },
+  { category: "Insalata", title: "Caprese", image: "/images/menu/dish-caprese.jpg" },
+  { category: "Fritto", title: "Suppli", image: "/images/menu/dish-suppli.jpg" },
 ];
 ---
 
 <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
   {items.map((item, index) => (
-    <figure class:list={["relative min-h-56 overflow-hidden rounded-lg", item.color, index === 1 ? "lg:row-span-2" : ""]}>
-      {item.image && <img src={item.image} alt="Placeholder food photography for Pomodorum" loading="lazy" class="absolute inset-0 h-full w-full object-cover" />}
-      <div class="absolute inset-0 opacity-25" style="background-image: radial-gradient(circle at 25% 25%, white 0 2px, transparent 2px); background-size: 22px 22px;"></div>
-      <figcaption class="absolute inset-x-0 bottom-0 bg-ink/65 p-4 text-white">
-        <p class="text-xs font-bold uppercase tracking-[0.16em] text-white/70">{item.category}</p>
-        <p class="mt-1 font-display text-2xl font-bold">{item.title}</p>
-        <p class="mt-1 text-sm text-white/75">Placeholder image. Replace with owner-approved photo.</p>
+    <figure class:list={["group relative overflow-hidden rounded-lg bg-white shadow-soft", index === 1 ? "lg:row-span-2" : ""]}>
+      <img
+        src={item.image}
+        alt={item.title}
+        loading="lazy"
+        class:list={[
+          "w-full object-cover transition duration-500 group-hover:scale-105",
+          index === 1 ? "h-full min-h-[28rem]" : "aspect-[4/3]",
+        ]}
+      />
+      <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/80 to-transparent p-5 text-white">
+        <p class="text-xs font-bold uppercase tracking-[0.18em] text-white/70">{item.category}</p>
+        <p class="mt-1 font-display text-3xl font-bold">{item.title}</p>
       </figcaption>
     </figure>
   ))}

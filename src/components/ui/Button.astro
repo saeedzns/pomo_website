@@ -7,9 +7,9 @@ interface Props {
 
 const { href, variant = "primary", label } = Astro.props;
 const styles = {
-  primary: "bg-tomato text-white hover:bg-[#9f2f27]",
-  secondary: "bg-basil text-white hover:bg-[#254a2f]",
-  ghost: "border border-ink/15 bg-white/80 text-ink hover:bg-white",
+  primary: "bg-tomato text-white shadow-lg shadow-tomato/20 hover:bg-[#9f2f27]",
+  secondary: "bg-ink text-white hover:bg-olive",
+  ghost: "border border-ink/15 bg-white/70 text-ink hover:bg-white",
 };
 ---
 
@@ -17,7 +17,7 @@ const styles = {
   href={href}
   aria-label={label}
   class:list={[
-    "inline-flex min-h-11 items-center justify-center rounded-md px-5 py-3 text-sm font-bold transition",
+    "inline-flex min-h-11 items-center justify-center rounded-full px-5 py-3 text-xs font-bold uppercase tracking-[0.18em] transition",
     styles[variant],
   ]}
 >
