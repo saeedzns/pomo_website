@@ -61,10 +61,15 @@ Use `null` for unknown prices:
 
 ## Deployment
 
-This project can be deployed to Vercel, Netlify, or Cloudflare Pages.
+This project is prepared for Vercel deployment connected to the GitHub repo.
 
-Recommended build settings:
+Recommended Vercel settings:
 
-- Install command: `npm install`
+- Framework preset: Astro
+- Install command: `npm ci`
 - Build command: `npm run build`
 - Output directory: `dist`
+- Environment variable after assigning a production domain:
+  - `SITE_URL=https://your-domain.example`
+
+When connected to GitHub, every push to `main` creates a preview deployment and updates production according to the Vercel project settings.
