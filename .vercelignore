@@ -1,0 +1,14 @@
+.git
+.astro
+.agents
+.codex
+.vercel
+dist
+node_modules
+tmp
+pom img
+pomodorum-project
+public/images/originals
+Recording 2026-05-25 031745.mp4
+character.png
+{console.error(e)
