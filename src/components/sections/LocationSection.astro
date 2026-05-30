@@ -1,0 +1,77 @@
+---
+import { site } from "../../data/site";
+import type { Language } from "../../data/site";
+
+interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+const copy = {
+  en: {
+    eyebrow: "Location",
+    title: "Via Cavour 153, Roma",
+    intro: "One tap to call, open the map, or check the digital menu before you arrive.",
+    address: "Address",
+    phone: "Phone",
+    hours: "Hours",
+    directions: "Get Directions",
+    call: "Call",
+  },
+  it: {
+    eyebrow: "Dove siamo",
+    title: "Via Cavour 153, Roma",
+    intro: "Apri la mappa, chiama o consulta il menu digitale prima di arrivare.",
+    address: "Indirizzo",
+    phone: "Telefono",
+    hours: "Orari",
+    directions: "Indicazioni",
+    call: "Chiama",
+  },
+}[lang];
+---
+
+<section id="location" class="bg-cream px-4 py-16 sm:px-6 sm:py-20">
+  <div class="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
+    <div>
+      <p class="eyebrow">{copy.eyebrow}</p>
+      <h2 class="mt-3 font-display text-4xl font-semibold sm:text-6xl">{copy.title}</h2>
+      <p class="mt-5 max-w-xl leading-7 text-ink/65">{copy.intro}</p>
+      <dl class="mt-8 grid gap-5">
+        <div class="flex gap-4">
+          <span class="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-mint/35 text-olive">⌖</span>
+          <div>
+            <dt class="text-xs font-bold uppercase tracking-[0.24em] text-ink/45">{copy.address}</dt>
+            <dd class="mt-1">{site.address}</dd>
+          </div>
+        </div>
+        <div class="flex gap-4">
+          <span class="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-mint/35 text-olive">☏</span>
+          <div>
+            <dt class="text-xs font-bold uppercase tracking-[0.24em] text-ink/45">{copy.phone}</dt>
+            <dd class="mt-1"><a href={site.phoneHref} class="hover:text-tomato">{site.phoneDisplay}</a></dd>
+          </div>
+        </div>
+        <div class="flex gap-4">
+          <span class="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-mint/35 text-olive">◷</span>
+          <div>
+            <dt class="text-xs font-bold uppercase tracking-[0.24em] text-ink/45">{copy.hours}</dt>
+            <dd class="mt-1">{site.openingHours[lang]}</dd>
+          </div>
+        </div>
+      </dl>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href={site.googleMapsUrl} class="rounded-full bg-tomato px-6 py-3 text-sm font-bold text-white shadow-lg shadow-tomato/20">{copy.directions}</a>
+        <a href={site.phoneHref} class="rounded-full bg-paper px-6 py-3 text-sm font-bold text-tomato shadow-md ring-1 ring-ink/10">{copy.call}</a>
+      </div>
+    </div>
+    <div class="overflow-hidden rounded-3xl shadow-soft ring-1 ring-ink/10">
+      <iframe
+        title="Pomodorum map"
+        src="https://www.google.com/maps?q=Via%20Cavour%20153%2C%2000184%20Roma%2C%20Italy&output=embed"
+        class="h-[420px] w-full border-0"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</section>

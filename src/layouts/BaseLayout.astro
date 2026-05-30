@@ -10,9 +10,10 @@ interface Props {
   title?: string;
   description?: string;
   path?: string;
+  chrome?: boolean;
 }
 
-const { lang, title, description, path = "" } = Astro.props;
+const { lang, title, description, path = "", chrome = true } = Astro.props;
 ---
 
 <!doctype html>
@@ -23,10 +24,10 @@ const { lang, title, description, path = "" } = Astro.props;
     <SEO lang={lang} title={title} description={description} path={path} />
   </head>
   <body>
-    <Navbar lang={lang} path={path} />
+    {chrome && <Navbar lang={lang} path={path} />}
     <main>
       <slot />
     </main>
-    <Footer lang={lang} />
+    {chrome && <Footer lang={lang} />}
   </body>
 </html>

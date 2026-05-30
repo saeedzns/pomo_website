@@ -1,0 +1,82 @@
+---
+import type { Language } from "../../data/site";
+
+interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+const awards = [
+  {
+    image: "/images/awards/trip-advisor-2025.png",
+    alt: "Tripadvisor Travelers' Choice Awards 2025",
+  },
+  {
+    image: "/images/awards/trip-advisor-2024.png",
+    alt: "Tripadvisor Travelers' Choice Awards 2024",
+  },
+];
+const copy = {
+  en: {
+    eyebrow: "Good to know",
+    title: "Fast, clear and easy for every guest.",
+    items: [
+      { icon: "€", title: "No service charge", text: "Clear menu prices with no extra service fee." },
+      { icon: "⏱", title: "Ready in about 10 min", text: "Most dishes are prepared quickly for a warm stop." },
+      { icon: "Wi‑Fi", title: "Free Wi‑Fi", text: "Stay connected while you eat." },
+      { icon: "🥬", title: "Vegetarian options", text: "Pasta, pinsa, salads and sides available without meat." },
+      { icon: "EN/IT", title: "English & Italian spoken", text: "Easy ordering for locals and international guests." },
+      { icon: "♻", title: "Biodegradable tableware", text: "We are proud to use biodegradable paper plates and forks to help save the planet." },
+    ],
+  },
+  it: {
+    eyebrow: "Da sapere",
+    title: "Veloce, chiaro e semplice per ogni ospite.",
+    items: [
+      { icon: "€", title: "Nessun costo di servizio", text: "Prezzi chiari dal menu, senza extra per il servizio." },
+      { icon: "⏱", title: "Pronto in circa 10 min", text: "La maggior parte dei piatti e preparata velocemente." },
+      { icon: "Wi‑Fi", title: "Wi‑Fi gratuito", text: "Resta connesso mentre mangi." },
+      { icon: "🥬", title: "Opzioni vegetariane", text: "Pasta, pinsa, insalate e contorni disponibili senza carne." },
+      { icon: "EN/IT", title: "Parliamo italiano e inglese", text: "Ordinare e semplice per ospiti locali e internazionali." },
+      { icon: "♻", title: "Stoviglie biodegradabili", text: "Siamo orgogliosi di usare piatti e posate biodegradabili per aiutare a proteggere il pianeta." },
+    ],
+  },
+}[lang];
+---
+
+<section id="trust" class="bg-[#f7f3ec] px-4 py-16 text-ink sm:px-6 sm:py-20">
+  <div class="mx-auto max-w-6xl">
+    <p class="eyebrow text-tomato">{copy.eyebrow}</p>
+    <div class="mt-3 flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+      <h2 class="max-w-2xl font-display text-4xl font-semibold text-ink sm:text-5xl">{copy.title}</h2>
+      <div class="grid grid-cols-2 gap-3 sm:gap-4">
+        {awards.map((award) => (
+          <img
+            src={award.image}
+            alt={award.alt}
+            width="1122"
+            height="1402"
+            loading="lazy"
+            decoding="async"
+            class="aspect-[4/5] w-28 object-contain sm:w-32"
+          />
+        ))}
+      </div>
+    </div>
+    <div class="mt-9 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+      {copy.items.map((item) => (
+        <article class="rounded-2xl border border-ink/10 bg-white/72 p-5 shadow-sm">
+          <div class="flex items-start gap-4">
+            <span class="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-tomato/15 bg-tomato/8 text-xs font-black text-tomato">
+              {item.icon}
+            </span>
+            <div>
+              <h3 class="text-base font-black text-ink">{item.title}</h3>
+              <p class="mt-1.5 text-sm leading-6 text-ink/60">{item.text}</p>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

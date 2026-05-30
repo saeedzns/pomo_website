@@ -4,19 +4,24 @@ export default {
   theme: {
     extend: {
       colors: {
-        tomato: "#b9362b",
-        basil: "#2f5d3a",
-        olive: "#333d2d",
-        cream: "#fbf3e4",
-        paper: "#fffaf1",
-        ink: "#241f1c",
+        tomato: "#c62520",
+        basil: "#89b9a3",
+        olive: "#33463c",
+        cream: "#f3eadb",
+        paper: "#fffaf4",
+        ink: "#201b17",
+        mint: "#a9cbb9",
+        wood: "#d9c5aa",
+        tile: "#b91f1c",
+        frame: "#151311",
+        steel: "#74736e",
       },
       fontFamily: {
         display: ["Georgia", "serif"],
         sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
       },
       boxShadow: {
-        soft: "0 16px 40px rgb(36 31 28 / 0.10)",
+        soft: "0 16px 40px rgb(32 27 23 / 0.12)",
       },
     },
   },

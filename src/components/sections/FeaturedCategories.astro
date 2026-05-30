@@ -1,0 +1,72 @@
+---
+import { allMenuItems } from "../../data/menu";
+import type { Language } from "../../data/site";
+
+interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+const labels = {
+  en: {
+    eyebrow: "Fresh and fast",
+    title: "Choose your Pomodorum moment",
+    button: "View items",
+  },
+  it: {
+    eyebrow: "Fresco e veloce",
+    title: "Scegli il tuo momento Pomodorum",
+    button: "Vedi piatti",
+  },
+}[lang];
+
+const categories = [
+  {
+    title: "Pasta Fresca",
+    description: "Roman classics with clear prices and fresh sauces.",
+    image: allMenuItems.find((item) => item.id === "pasta-carbonara")?.image,
+    href: `/${lang}/menu#pasta-fresca`,
+  },
+  {
+    title: "Pinsa Romana",
+    description: "Light, crispy and baked with Pomodorum red sauce.",
+    image: allMenuItems.find((item) => item.id === "pinsa-margherita")?.image,
+    href: `/${lang}/menu#pinsa-romana`,
+  },
+  {
+    title: "Supplì & Sides",
+    description: "Simple street-food bites for a quick Roman stop.",
+    image: allMenuItems.find((item) => item.id === "suppli")?.image,
+    href: `/${lang}/menu#sides`,
+  },
+  {
+    title: "Desserts & Salads",
+    description: "Tiramisù, Caprese and fresh lighter options.",
+    image: allMenuItems.find((item) => item.id === "tiramisu")?.image,
+    href: `/${lang}/menu#dessert`,
+  },
+];
+---
+
+<section class="bg-cream px-4 py-16 sm:px-6 sm:py-20">
+  <div class="mx-auto max-w-6xl">
+    <div class="max-w-2xl">
+      <p class="eyebrow">{labels.eyebrow}</p>
+      <h2 class="mt-3 font-display text-4xl font-semibold sm:text-5xl">{labels.title}</h2>
+    </div>
+    <div class="mt-9 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      {categories.map((category) => (
+        <a href={category.href} class="group overflow-hidden rounded-3xl border border-ink/10 bg-paper shadow-soft transition hover:-translate-y-1 hover:shadow-xl">
+          <div class="bg-cream p-4">
+            <img src={category.image} alt={category.title} loading="lazy" class="aspect-[4/3] w-full object-contain transition duration-500 group-hover:scale-105" />
+          </div>
+          <div class="p-5">
+            <h3 class="font-display text-2xl font-semibold">{category.title}</h3>
+            <p class="mt-2 text-sm leading-6 text-ink/60">{category.description}</p>
+            <p class="mt-4 text-sm font-bold text-tomato">{labels.button} →</p>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
